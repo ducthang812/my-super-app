@@ -1,5 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS super_app;
-SET search_path TO super_app;
+CREATE SCHEMA IF NOT EXISTS my_super_app;
+SET search_path TO my_super_app;
 
 CREATE TABLE accounts (
                           id BIGSERIAL PRIMARY KEY,  --id account

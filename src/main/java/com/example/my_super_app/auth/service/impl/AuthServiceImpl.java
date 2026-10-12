@@ -12,6 +12,7 @@ import com.example.my_super_app.common.Constant;
 import com.example.my_super_app.common.exception.InvalidCredentialsException;
 import com.example.my_super_app.common.exception.ResourceConflictException;
 import com.example.my_super_app.common.security.JwtTokenProvider;
+import com.example.my_super_app.user.service.UserProfileQueryService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -26,12 +27,14 @@ public class AuthServiceImpl implements AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
     private final AccountMapper accountMapper;
+    private final UserProfileQueryService userProfileQueryService;
 
-    public AuthServiceImpl(AccountRepository accountRepository, PasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider, AccountMapper accountMapper) {
+    public AuthServiceImpl(AccountRepository accountRepository, PasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider, AccountMapper accountMapper, UserProfileQueryService userProfileQueryService) {
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtTokenProvider = jwtTokenProvider;
         this.accountMapper = accountMapper;
+        this.userProfileQueryService = userProfileQueryService;
     }
 
     @Override
@@ -45,6 +48,8 @@ public class AuthServiceImpl implements AuthService {
         String hashedPassword = passwordEncoder.encode(registerRequest.password());
         Account account = new Account(registerRequest.username(), registerRequest.email(), hashedPassword);
         Account savedAccount = accountRepository.save(account);
+
+        userProfileQueryService.createEmptyProfile(savedAccount.getId());
 
         return accountMapper.toResponse(savedAccount);
     }
