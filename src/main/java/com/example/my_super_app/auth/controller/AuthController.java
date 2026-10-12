@@ -6,13 +6,13 @@ import com.example.my_super_app.auth.dto.response.AccountResponse;
 import com.example.my_super_app.auth.dto.response.LoginResponse;
 import com.example.my_super_app.auth.service.AuthService;
 import com.example.my_super_app.common.response.ApiResponse;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -7,7 +7,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "accounts", schema = "super_app")
+@Table(name = "accounts", schema = "my_super_app")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

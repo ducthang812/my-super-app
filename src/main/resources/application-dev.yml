@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=my_super_app
     username: postgres
     password: 123456
 
@@ -13,6 +13,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        default_schema: my_super_app
   flyway:
     enabled: true
 
