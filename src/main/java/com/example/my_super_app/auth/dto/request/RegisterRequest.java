@@ -1,4 +1,4 @@
-package com.example.my_super_app.auth.dto;
+package com.example.my_super_app.auth.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

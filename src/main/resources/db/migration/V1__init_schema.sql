@@ -1,3 +1,6 @@
+CREATE SCHEMA IF NOT EXISTS super_app;
+SET search_path TO super_app;
+
 CREATE TABLE accounts (
                           id BIGSERIAL PRIMARY KEY,  --id account
                           username VARCHAR(50) NOT NULL, --username account

@@ -3,9 +3,6 @@ spring:
     name: my-super-app
   profiles:
     active: dev
-  datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: 123456
+
 
 
